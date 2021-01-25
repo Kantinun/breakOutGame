@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>Try to factorial</title>
+    <script>
+        function factorial() {
+            var n = Number(document.getElementById('number').value);
+            var x = 1;
+            for (var i=2;i<n+1;i++) {
+                console.log(i);
+                x *= i;
+            }
+            document.getElementById("demo").innerHTML = x ;
+        }
+    </script>
+</head>
+<body>
+    <input type="number" name="number" id="number" value="1">
+    <input type="submit" onclick="factorial()" value="Submit">
+    <p id="demo"></p>
+</body>
+</html>
