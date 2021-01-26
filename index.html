@@ -51,11 +51,12 @@
     var rightPressed = false;
     var leftPressed = false;
 
-    var interval = setInterval(draw, 10);
+    draw(); // Replace var interval = setInterval(draw, 10)
 
     document.addEventListener("keydown", keyDownHandler, false);
     document.addEventListener("keyup", keyUpHandler, false);
     document.addEventListener("mousemove", mouseMoveHandler, false); // event for mouse control  
+    
     function keyDownHandler(e) {
         if(e.key == "Right" || e.key == "ArrowRight") {
             rightPressed = true;
@@ -93,7 +94,7 @@
                         if(score == brickRowCount*brickColumnCount) {
                             alert("YOU WIN, CONGRATULATIONS!");
                             document.location.reload();
-                            clearInterval(interval); // Needed for Chrome to end game
+                            // clearInterval(interval); comment for Improving rendering with requestAnimationFrame()
                         }
                     }
                 }
@@ -196,6 +197,7 @@
         if(y + dy > canvas.height || y + dy < 0) { // bounceball top and bottom
             dy = -dy;
         }
+        requestAnimationFrame(draw);
     }
     
 
